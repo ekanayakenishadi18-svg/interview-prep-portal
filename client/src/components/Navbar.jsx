@@ -4,7 +4,8 @@ import { useAuth } from '../context/AuthContext';
 import { firstName } from '../utils/format';
 
 export default function Navbar() {
-  const { user, logout, isAdmin } = useAuth();
+  const { user, logout } = useAuth();
+const isAdmin = user?.role === 'admin';
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,7 +19,7 @@ export default function Navbar() {
         ['/quizzes', 'Quizzes'],
         ['/experiences', 'Experiences'],
         ['/bookmarks', 'Bookmarks'],
-        ...(isAdmin ? [['/admin', 'Admin']] : []),
+        ['/admin', 'Admin'],
       ]
     : [];
 

@@ -39,7 +39,8 @@ export function AuthProvider({ children }) {
     return data.user;
   };
 
-  const login = async (email, password) => saveSession((await api.post('/auth/login', { email, password })).data);
+  
+const login = async (email, password) => saveSession((await api.post('/auth/login', { email, password })).data);
   const register = async (payload) => saveSession((await api.post('/auth/register', payload)).data);
   const logout = () => {
     localStorage.removeItem(TOKEN_KEY);
