@@ -3,3 +3,6 @@ node_modules/
 dist/
 .DS_Store
 *.log
+
+# Local password-reset helper
+server/scripts/resetStudentPassword.js
