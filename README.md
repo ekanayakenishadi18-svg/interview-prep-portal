@@ -58,7 +58,7 @@ interview-prep-portal/
 │   └── seed/                 # sample data + seed script
 └── client/
     ├── index.html
-    ├── vite.config.js        # dev proxy: /api -> http://localhost:5000
+    ├── vite.config.js        # dev proxy: /api -> http://localhost:5001
     └── src/
         ├── api/client.js     # Axios instance with JWT interceptor
         ├── context/          # AuthContext
@@ -95,9 +95,11 @@ Edit `server/.env`:
 ### 3. Load sample data
 ```bash
 npm run seed              # from the project root
+**Note:** Run the seed command only when setting up a fresh database for demonstration. It may modify existing data. Do not run it on a database containing data you want to keep.
 ```
 This creates 28 questions, 4 quizzes, 3 interview experiences and these accounts:
 
+These are sample accounts created by the seed script for demonstration purposes. They may not exist in your current database. Do not use these credentials unless the seed script has been run successfully on your database.
 | Role | Email | Password |
 | --- | --- | --- |
 | Admin | admin@prep.dev | Admin@123 |
@@ -109,7 +111,7 @@ This creates 28 questions, 4 quizzes, 3 interview experiences and these accounts
 npm run dev               # from the project root
 ```
 - Client: http://localhost:5173
-- API: http://localhost:5000/api (health check at `/api/health`)
+- API: http://localhost:5001/api (health check at `/api/health`)
 
 To run them separately: `npm run dev` inside `server/`, and `npm run dev` inside `client/`.
 
